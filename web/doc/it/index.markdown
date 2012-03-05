@@ -28,7 +28,7 @@ next_url: what-is-rubinius
     1. [Variabili Globali](/doc/it/ruby/global-variables/)
 1. [Specifiche](/doc/it/specs/)
     1. [RubySpec](/doc/it/specs/rubyspec/)
-    1. [Compilatore](/doc/it/specs/compiler/)
+    1. [Specifiche del Compilatore](/doc/it/specs/compiler/)
 1. [Sistema di build](/doc/it/build-system/)
 1. [Bootstrapping](/doc/it/bootstrapping/)
 1. [Macchina Virtuale](/doc/it/virtual-machine/)
