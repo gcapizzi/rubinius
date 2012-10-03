@@ -1,33 +1,35 @@
 ---
 layout: doc_it
-title: Bootstrapping
-previous: Build System
+title: Bootstrap
+previous: Sistema di build
 previous_url: build-system
-next: Virtual Machine
+next: Macchina Virtuale
 next_url: virtual-machine
 ---
 
-Bootstrapping is the process of building up functionality of the system until
-all Ruby code can be executed. There are seven stages to the bootstrap process:
+Il bootstrap è il processo di costruzione graduale delle funzionalità del
+sistema, fino a quando non è possibile eseguire codice Ruby. Il processo
+è costituito da sette fasi:
 
-  1. VM: The virtual machine is able to load and execute bytecode, send
-     messages (i.e. look up and execute methods), and all primitive functions
-     are available, but not yet hooked up as Ruby methods.
+  1. VM: La macchina virtuale è in grado di caricare ed eseguire bytecode,
+     inviare messaggi (es. ricercare ed eseguire metodi), e tutte le funzioni
+     primitive sono disponibili, ma non ancora accessibili come metodi Ruby.
 
-     The Class class has to be manually set up this early in the process by
-     setting its class to be itself and its superclass to be Module. In
-     addition to Class and Module, a couple of other base classes are created
-     here including Object, Tuple, LookupTable, and MethodTable.
+     A questo punto del processo la classe Class deve essere impostata
+     manualmente per usare se stessa come classe e Module come superclasse.
+     Oltre a Class e Module, vengono create un paio di altre classi di base,
+     e in particolare Object, Tuple, LookupTable, e MethodTable.
 
-     Now that classes can be defined, 35 or so built in classes are told to
-     initialize themselves, symbols for top level methods (:object_id, :call,
-     :protected, etc) are created, basic exceptions are defined, and
-     primitives are registered. Finally IO gets hooked up. Also at this stage,
-     several fundamental Ruby methods are bound to primitives.
+     Ora che è possibile definire classi, più o meno 35 classi built-in
+     vengono inizializzate, vengono creati i simboli per i metodi top level
+     (:object_id, :call, :protected, etc), vengono definite le eccezioni di
+     base, e vengono registrate le primitive. Infine viene predisposto l'IO.
+     Inoltre in questa fase diversi metodi Ruby fondamentali vengono associati
+     alle rispettive primitive.
 
-     At this point there is enough defined behavior to begin to load up the
-     rest of the runtime kernel which is all defined in ruby. This has to be
-     done in several passes as the language grows.
+     A questo punto è possibile iniziare a acricare il resto del kernel, che
+     è completamente definito in Ruby. E' necessario che ciò avvenga in più
+     passi, di pari passo con la costruzione del linguaggio.
 
   2. alpha: This starts the loading of Ruby code. The ability to open classes
      and modules and define methods exists. The minimum functionality to
